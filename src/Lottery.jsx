@@ -25,7 +25,7 @@ export default function Lottery(){
             <span>{ticket[1]}</span>
             <span>{ticket[2]}</span>
          </div>
-            <button onClick={handleTicketGenerate}>Get New Ticket</button>
+            <button className="btn" onClick={handleTicketGenerate}>Get New Ticket</button>
       </div>
       </>
    );

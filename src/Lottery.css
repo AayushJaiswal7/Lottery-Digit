@@ -1,3 +1,12 @@
 .ticket{
    
 }
+.btn{
+   border: 4px;
+   border-radius: 6px;
+   height:30px;
+   width: 160px;
+   border-color: chartreuse;
+   background-color: cadetblue;
+   color: black;
+}
