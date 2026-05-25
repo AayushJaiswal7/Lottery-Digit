@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { genTicket, sum } from "./helper";
 import Ticket from "./Ticket.jsx"
-
+import Button from "./Button.jsx";
 export default function Lottery({n=3, winCondition }){
 
    let [ticket, setTicket] = useState(genTicket(n));
@@ -15,7 +15,7 @@ export default function Lottery({n=3, winCondition }){
          <h1>Lottery Game!</h1>
          <Ticket ticket={ticket}/>
          <br></br>
-         <button onClick={buyTicket} className="btn">Buy New Ticket</button>
+         <Button action={buyTicket}/>
          <h3>{isWinning && "Congratulation ,you won !"}</h3>
       </div>
 
