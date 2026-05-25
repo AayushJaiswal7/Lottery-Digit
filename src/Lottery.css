@@ -1,5 +1,10 @@
-.ticket{
+.TicketNum{
+   font-size: 2rem;
    
+}
+.Ticket{
+   margin-top: 100px;
+
 }
 .btn{
    border: 4px;

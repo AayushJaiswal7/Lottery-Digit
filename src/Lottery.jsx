@@ -1,37 +1,23 @@
 import { useState } from "react";
-import "./Lottery.css";
 import { genTicket, sum } from "./helper";
-import TicketDisplay from "./TicketDisplay";
-import WinningMessage from "./WinningMessage";
-import LotteryButton from "./LotteryButton";
+import Ticket from "./Ticket.jsx"
 
-export default function Lottery() {
-   // State is lifted here (parent component)
-   const [ticket, setTicket] = useState(genTicket(3));
+export default function Lottery({n=3, winningSum=15}){
 
-   // Derived state calculated at parent level
-   const isWinning = sum(ticket) === 15;
+   let [ticket, setTicket] = useState(genTicket(n));
+   const isWinning = sum(ticket) === winningSum;
 
-   // Event handler defined at parent level
-   const handleTicketGenerate = () => {
-      setTicket(() => {
-         return genTicket(3);
-      });
-   };
-
+   let buyTicket = () => {
+      setTicket(genTicket(n))
+   }
    return (
-      <>
-         <div>
-            <h1>Lottery Game !</h1>
-            {/* Child component receives state as prop */}
-            <WinningMessage isWinning={isWinning} />
+      <div>
+         <h1>Lottery Game!</h1>
+         <Ticket ticket={ticket}/>
+         <br></br>
+         <button onClick={buyTicket } className="btn">Buy New Ticket</button>
+         <h3>{isWinning && "Congratulation ,you won"}</h3>
+      </div>
 
-            {/* Child component receives state as prop */}
-            <TicketDisplay ticket={ticket} />
-
-            {/* Child component receives handler as prop */}
-            <LotteryButton onGetNewTicket={handleTicketGenerate} />
-         </div>
-      </>
    );
 }
