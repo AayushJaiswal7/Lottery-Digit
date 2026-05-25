@@ -9,7 +9,7 @@ export default function App() {
 
    return (
       <>
-         <Lottery n={3} winningSum={winCondition} />
+         <Lottery n={3} winCondition={winCondition} />
       </>
    );
 
